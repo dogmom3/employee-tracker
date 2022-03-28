@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 
 //view all roles
 const viewRoles = () => {
-    const sqlQuery = 'SELECT * FROM roles';
+    const sqlQuery = 'SELECT * FROM role';
     return db.query(sqlQuery)
 }
 

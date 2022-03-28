@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 
 //view all the data from departments
 const viewDepts = () => {
-    const sqlQuery = 'SELECT * FROM depts';
+    const sqlQuery = 'SELECT * FROM department';
     return db.query(sqlQuery)
 }
 

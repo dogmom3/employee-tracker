@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 
 //view all data fron employees
 const viewEmployees = () => {
-    const sqlQuery = 'SELECT * FROM employees';
+    const sqlQuery = 'SELECT * FROM employee';
     return db.query(sqlQuery)
 }
 
