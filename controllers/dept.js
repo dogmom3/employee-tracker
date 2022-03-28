@@ -1,11 +1,25 @@
+const db = require('./db/connection')
+const inquirer = require('inquirer');
+
+//view all the data from departments
 const viewDepts = () => {
     const sqlQuery = 'SELECT * FROM depts';
     return db.query(sqlQuery)
 }
 
-const addDept = (name) => {
-    const sqlQuery = 'INSERT INTO depts {name} VALUES {?}';
-    return db.query(sqlQuery, [name])
+//inserting the answer into the database
+const addDept = async () => {
+    await inquirer.prompt(
+        {
+            type: 'input',
+            name: 'deptName',
+            message: 'What is the name of the department?'
+        }
+    )
+        .then((answer) => {
+            const sqlQuery = 'INSERT INTO department (name) VALUES (?)';
+            db.query(sqlQuery, answer.addDept)
+        })
 }
 
 //exporting the department data
