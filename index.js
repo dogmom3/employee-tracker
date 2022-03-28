@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const db = require('./db/connection');
-const consoleTable = require('console.table');
+// const consoleTable = require('console.table');
 const {viewDepts, addDept} = require('./controllers/dept');
 const {viewRoles, addRole} = require('./controllers/role');
 const {viewEmployees, addEmployee, updateEmployeeRole} = require('./controllers/emp');
@@ -19,49 +19,49 @@ const {choice} = await inquirer.prompt([
 // switch for each selected choice
     switch(choice) {
       case 'view all departments':
-          const [deptRows] = await viewDepts();
+          let [deptRows] = await viewDepts();
           console.log('\n')
           console.table(deptRows);
           init();
           break;
 
           case 'view all roles':
-          const [roleRows] = await viewRoles();
+          let [roleRows] = await viewRoles();
           console.log('\n')
           console.table(roleRows);
           init();
           break;
 
           case 'view all employees':
-          const [empRows] = await viewEmployees();
+          let [empRows] = await viewEmployees();
           console.log('\n')
           console.table(empRows);
           init();
           break;
 
           case 'add a department':
-          const [deptRows] = await addDept();
+          [deptRows] = await addDept();
           console.log('\n')
           console.table(deptRows);
           init();
           break;
 
           case 'add a role':
-          const [roleRows] = await addRole();
+          [roleRows] = await addRole();
           console.log('\n')
           console.table(roleRows);
           init();
           break;
 
           case 'add an employee':
-          const [empRows] = await addEmployee();
+          [empRows] = await addEmployee();
           console.log('\n')
           console.table(empRows);
           init();
           break;
 
           case 'update employee role':
-          const [empRows] = await updateEmployeeRole();
+          [empRows] = await updateEmployeeRole();
           console.log('\n')
           console.table(empRows);
           init();

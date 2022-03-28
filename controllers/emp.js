@@ -1,4 +1,4 @@
-const db = require('./db/connection')
+const db = require('../db/connection')
 const inquirer = require('inquirer');
 
 //view all data fron employees
