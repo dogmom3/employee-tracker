@@ -9,7 +9,7 @@ const viewRoles = () => {
 
 //inserting answers into database
 const addRole = async () => {
-    await inquirer.prompt(
+   const answer = await inquirer.prompt([
         {
             type: 'input',
             name: 'roleName',
@@ -41,24 +41,24 @@ const addRole = async () => {
         {
             type: 'input',
             name: 'roleDept',
-            message: 'What department does the role belong to?',
+            message: 'What department id does the role belong to?',
             validate: userInput => {
                 if (userInput) {
                     return true;
                 } else {
-                    console.log('You must enter a department for this role.');
+                    console.log('You must enter a department id for this role.');
                     return false;
                 }
             }
         }
-    )
-        .then((answer) => {
-            name = answer.roleName
-            salary = answer.roleSalary
-            dept = answer.roleDept
-            const sqlQuery = `INSERT INTO roles (name, salary, department_id) VALUES ("${name}","${salary}","${dept}")`;
-            db.query(sqlQuery)
-        })
+    ])
+        // .then((answer) => {
+            roleTitle = answer.roleName
+            roleSalary = answer.roleSalary
+            roleDept = answer.roleDept
+            const sqlQuery = `INSERT INTO role (title, salary, dept_id) VALUES ("${roleTitle}","${roleSalary}","${roleDept}")`;
+            return db.query(sqlQuery)
+        // })
 }
 
 //exporting the role data

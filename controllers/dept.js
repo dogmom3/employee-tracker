@@ -9,13 +9,13 @@ const viewDepts = () => {
 
 //inserting the answer into the database
 const addDept = async () => {
-    await inquirer.prompt(
+    await inquirer.prompt([
         {
             type: 'input',
             name: 'deptName',
             message: 'What is the name of the department?'
         }
-    )
+    ])
         .then((answer) => {
             const sqlQuery = 'INSERT INTO department (name) VALUES (?)';
              db.query(sqlQuery, answer.deptName)
