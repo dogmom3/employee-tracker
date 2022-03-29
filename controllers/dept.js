@@ -18,7 +18,7 @@ const addDept = async () => {
     )
         .then((answer) => {
             const sqlQuery = 'INSERT INTO department (name) VALUES (?)';
-            db.query(sqlQuery, answer.addDept)
+             db.query(sqlQuery, answer.deptName)
         })
 }
 

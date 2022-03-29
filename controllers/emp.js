@@ -78,20 +78,24 @@ const addEmployee = async () => {
 
 //updating employee role
 const updateEmployeeRole = async () => {
-    await inquirer.prompt(
+    await inquirer.prompt([
         {
-            type: 'list',
-            name: 'employee',
-            choices: [''],
-            message: 'Select an employee to update.'
+            type: 'input',
+            name: 'employee_id',
+            message: 'Provide employee id to update.'
         },
         {
-            type: 'list',
-            name: 'updateEmployee',
-            choices: [''],
-            message: 'Select a role for the employee.',
+            type: 'input',
+            name: 'updateRoleId',
+            message: 'Provide a new role id for the employee.',
         }
-    )
+    ])
+    .then((answer) => {
+        let employee_id = answer.employee_id
+        let updateRoleId = answer.updateRoleId
+        const sqlQuery = `UPDATE employee SET role_id = ${updateRoleId} WHERE id = ${employee_id}`
+        db.query(sqlQuery)
+    })
 }
 
 //exporting the employee data

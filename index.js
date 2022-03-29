@@ -39,9 +39,9 @@ console.log('choice', choice)
           break;
 
           case 'add a department':
-          [deptRows] = await addDept();
+           await addDept();
           console.log('\n')
-          console.table(deptRows);
+          console.log('Department added successfully!');
           init();
           break;
 
@@ -60,9 +60,9 @@ console.log('choice', choice)
           break;
 
           case 'update employee role':
-          [empRows] = await updateEmployeeRole();
+          await updateEmployeeRole();
           console.log('\n')
-          console.table(empRows);
+          console.log('Employee has been updated');
           init();
 
           case 'done':
