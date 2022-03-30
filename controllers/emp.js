@@ -72,7 +72,7 @@ const addEmployee = async () => {
         lastName = answer.empLastName
         role = answer.empRole
         manager = answer.empManager
-        const sqlQuery = `INSERT INTO employees {first_name, last_name, role_id, manager_id} VALUES ("${firstName}","${lastName}","${role}","${manager}")`;
+        const sqlQuery = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${firstName}","${lastName}","${role}","${manager}")`;
         return db.query(sqlQuery, answer.empFirstName, answer.empLastName, answer.empRole, answer.empManager)
 
     } catch (err) {
