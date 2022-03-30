@@ -7,7 +7,7 @@ const viewRoles = () => {
     return db.query(sqlQuery)
 }
 
-//inserting answers into database
+//inserting answers to add a role into database
 const addRole = async () => {
    const answer = await inquirer.prompt([
         {
@@ -52,13 +52,11 @@ const addRole = async () => {
             }
         }
     ])
-        // .then((answer) => {
             roleTitle = answer.roleName
             roleSalary = answer.roleSalary
             roleDept = answer.roleDept
             const sqlQuery = `INSERT INTO role (title, salary, dept_id) VALUES ("${roleTitle}","${roleSalary}","${roleDept}")`;
             return db.query(sqlQuery)
-        // })
 }
 
 //exporting the role data

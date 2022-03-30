@@ -7,7 +7,7 @@ const viewDepts = () => {
     return db.query(sqlQuery)
 }
 
-//inserting the answer into the database
+//adding a department into the database
 const addDept = async () => {
     await inquirer.prompt([
         {

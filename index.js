@@ -14,6 +14,7 @@ const {choice} = await inquirer.prompt([
         choices: ["view all departments", "view all roles", "view all employees", "add a department", "add a role", "add an employee", "update employee role", "done"]
       }
     ])
+    
 // switch for each selected choice
     switch(choice) {
       case 'view all departments':
@@ -63,7 +64,3 @@ const {choice} = await inquirer.prompt([
     }
 }
     init();
-
-
-
-

@@ -7,9 +7,8 @@ const viewEmployees = () => {
     return db.query(sqlQuery)
 }
 
-//inserting answers into the database
+//inserting answers to add an employee into the database
 const addEmployee = async () => {
-    try {
         const answer = await inquirer.prompt([
             {
                 type: 'input',
@@ -74,40 +73,31 @@ const addEmployee = async () => {
         manager = answer.empManager
         const sqlQuery = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${firstName}","${lastName}","${role}","${manager}")`;
         return db.query(sqlQuery, answer.empFirstName, answer.empLastName, answer.empRole, answer.empManager)
-
-    } catch (err) {
-        console.log(err);
-    }
 }
 
-//updating employee role
+//updating employee role in the database
 const updateEmployeeRole = async () => {
-    // try {
-        const answer = await inquirer.prompt([
-            {
-                type: 'input',
-                name: 'employee_id',
-                message: 'Provide employee id to update.'
-            },
-            {
-                type: 'input',
-                name: 'updateRoleId',
-                message: 'Provide a new role id for the employee.',
-            }
-        ])
-        let employee_id = answer.employee_id
-        let updateRoleId = answer.updateRoleId
-        const sqlQuery = `UPDATE employee SET role_id = ${updateRoleId} WHERE id = ${employee_id}`
-        return db.query(sqlQuery)
-    }
-    // } catch (err) {
-    //     console.log(err);
-    // }
+    const answer = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'employee_id',
+            message: 'Provide employee id to update.'
+        },
+        {
+            type: 'input',
+            name: 'updateRoleId',
+            message: 'Provide a new role id for the employee.',
+        }
+    ])
+    let employee_id = answer.employee_id
+    let updateRoleId = answer.updateRoleId
+    const sqlQuery = `UPDATE employee SET role_id = ${updateRoleId} WHERE id = ${employee_id}`
+    return db.query(sqlQuery)
+}
 
-
-    //exporting the employee data
-    module.exports = {
-        viewEmployees: viewEmployees,
-        addEmployee: addEmployee,
-        updateEmployeeRole: updateEmployeeRole
-    }
+//exporting the employee data
+module.exports = {
+    viewEmployees: viewEmployees,
+    addEmployee: addEmployee,
+    updateEmployeeRole: updateEmployeeRole
+}
