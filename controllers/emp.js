@@ -95,19 +95,19 @@ const updateEmployeeRole = async () => {
     return db.query(sqlQuery)
 }
 
-// const deleteEmployee = async ()=> {
-//     await inquirer.prompt([
-//         {
-//             type: 'input',
-//             name: 'deleteEmployeeName',
-//             message: 'What is the name of the employee that you want to delete?'
-//         }
-//     ])
-//     .then((answer) => {
-//         const sqlQuery = 'DELETE FROM employee (name) WHERE (name)';
-//          db.query(sqlQuery, answer.deleteEmployeeName)
-//     })
-// }
+const deleteEmployee = async ()=> {
+    await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'deleteEmployeeId',
+            message: 'What is the ID of the employee that you want to delete?'
+        }
+    ])
+    .then((answer) => {
+        const sqlQuery = 'DELETE FROM employee WHERE id = ?';
+         return db.query(sqlQuery, answer.deleteEmployeeId)
+    })
+}
 
 
 //exporting the employee data
@@ -115,5 +115,5 @@ module.exports = {
     viewEmployees: viewEmployees,
     addEmployee: addEmployee,
     updateEmployeeRole: updateEmployeeRole,
-    // deleteEmployee: deleteEmployee
+    deleteEmployee: deleteEmployee
 }

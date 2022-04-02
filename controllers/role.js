@@ -63,16 +63,14 @@ const deleteRole = async () => {
     const answer = await inquirer.prompt([
         {
             type: 'input',
-            name: 'deleteRoleName',
-            message: 'What is the name of the role that you want to delete?'
+            name: 'deleteRoleId',
+            message: 'What is the ID of the role that you want to delete?'
         }
     ])
-    // .then((answer) => {
-    // roleTitle = answer.roleName
-    roleSalary = answer.roleSalary
-    roleDept = answer.roleDept
-    const sqlQuery = `DELETE FROM role (title, salary, dept_id) WHERE ("${title}","${salary}","${dept_id}")`;
-   return db.query(sqlQuery)
+        .then((answer) => {
+            const sqlQuery = `DELETE FROM role WHERE id = ?`;
+            return db.query(sqlQuery, answer.deleteRoleId)
+        })
 }
 
 //exporting the role data
