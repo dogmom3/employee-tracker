@@ -14,12 +14,12 @@ I learned how to use MySql to help further my coding abilities.
 
 ## Installation
 
-Install MySql and Node on your computer. Run 'npm i' in the appropriate directory in your terminal. Make sure you are in the correct file directory and type 'node index' in the terminal to begin a series of questions to help populate your employee database.
+Install MySql and Node on your computer. Run 'npm i' in the appropriate directory in your terminal. Make sure you are in the correct file directory and type 'node index' in the terminal to begin a series of questions to help populate your employee database. When done, select done, or press 'ctrl c' on the keyboard to exit the program.
 
 ## Usage
-[Walkthrough Video]()
+[Walkthrough Video](https://drive.google.com/file/d/1KiaAUmvzfYGX5_FtQywDb3ZkhyQriUhj/view)
 
-![App Image]()
+![App Image](./images/db-data-screeenshot.png)
 
 ## Credits
 
