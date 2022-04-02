@@ -95,9 +95,25 @@ const updateEmployeeRole = async () => {
     return db.query(sqlQuery)
 }
 
+// const deleteEmployee = async ()=> {
+//     await inquirer.prompt([
+//         {
+//             type: 'input',
+//             name: 'deleteEmployeeName',
+//             message: 'What is the name of the employee that you want to delete?'
+//         }
+//     ])
+//     .then((answer) => {
+//         const sqlQuery = 'DELETE FROM employee (name) WHERE (name)';
+//          db.query(sqlQuery, answer.deleteEmployeeName)
+//     })
+// }
+
+
 //exporting the employee data
 module.exports = {
     viewEmployees: viewEmployees,
     addEmployee: addEmployee,
-    updateEmployeeRole: updateEmployeeRole
+    updateEmployeeRole: updateEmployeeRole,
+    // deleteEmployee: deleteEmployee
 }

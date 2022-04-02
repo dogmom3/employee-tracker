@@ -9,7 +9,7 @@ const viewRoles = () => {
 
 //inserting answers to add a role into database
 const addRole = async () => {
-   const answer = await inquirer.prompt([
+    const answer = await inquirer.prompt([
         {
             type: 'input',
             name: 'roleName',
@@ -52,15 +52,32 @@ const addRole = async () => {
             }
         }
     ])
-            roleTitle = answer.roleName
-            roleSalary = answer.roleSalary
-            roleDept = answer.roleDept
-            const sqlQuery = `INSERT INTO role (title, salary, dept_id) VALUES ("${roleTitle}","${roleSalary}","${roleDept}")`;
-            return db.query(sqlQuery)
+    roleTitle = answer.roleName
+    roleSalary = answer.roleSalary
+    roleDept = answer.roleDept
+    const sqlQuery = `INSERT INTO role (title, salary, dept_id) VALUES ("${roleTitle}","${roleSalary}","${roleDept}")`;
+    return db.query(sqlQuery)
+}
+
+const deleteRole = async () => {
+    const answer = await inquirer.prompt([
+        {
+            type: 'input',
+            name: 'deleteRoleName',
+            message: 'What is the name of the role that you want to delete?'
+        }
+    ])
+    // .then((answer) => {
+    // roleTitle = answer.roleName
+    roleSalary = answer.roleSalary
+    roleDept = answer.roleDept
+    const sqlQuery = `DELETE FROM role (title, salary, dept_id) WHERE ("${title}","${salary}","${dept_id}")`;
+   return db.query(sqlQuery)
 }
 
 //exporting the role data
 module.exports = {
     viewRoles: viewRoles,
     addRole: addRole,
+    deleteRole: deleteRole
 }

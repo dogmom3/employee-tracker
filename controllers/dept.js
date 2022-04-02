@@ -12,18 +12,34 @@ const addDept = async () => {
     await inquirer.prompt([
         {
             type: 'input',
-            name: 'deptName',
+            name: 'addDeptName',
             message: 'What is the name of the department?'
         }
     ])
         .then((answer) => {
             const sqlQuery = 'INSERT INTO department (name) VALUES (?)';
-             db.query(sqlQuery, answer.deptName)
+             return db.query(sqlQuery, answer.addDeptName)
         })
 }
+
+//deleting a department from the database
+// const deleteDept = async ()=> {
+//     await inquirer.prompt([
+//         {
+//             type: 'input',
+//             name: 'deleteDeptName',
+//             message: 'What is the name of the department that you want to delete?'
+//         }
+//     ])
+//     .then((answer) => {
+//         const sqlQuery = 'DELETE FROM department (name) WHERE (department_name)';
+//          db.query(sqlQuery, answer.deleteDeptName)
+//     })
+// }
 
 //exporting the department data
 module.exports = {
     viewDepts: viewDepts,
-    addDept: addDept
+    addDept: addDept,
+    // deleteDept: deleteDept
 }
